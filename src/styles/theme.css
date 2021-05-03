@@ -1,0 +1,33 @@
+:root {
+  --color-bg: rgb(229, 231, 235);
+  --color-lime: #00ff00;
+  --color-blue-spid: #274879;
+  --color-black-logo: #161615;
+  --color-orange: #f07e26;
+  --color-orange-hover: #da6c18;
+  --color-orange-section: #f9cba8;
+  --color-footer-dark: #000000;
+  --color-footer-light: #2c2e30;
+  --color-footer-link: #23e6ff;
+  --color-navbar-dark: #30383d;
+  --color-glass-3: rgba(255, 255, 255, 0.3);
+  --color-glass-6: rgba(255, 255, 255, 0.6);
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+.menu-is-open {
+  position: fixed;
+  top: 0;
+}
+
+aside,
+main {
+  -webkit-overflow-scrolling: touch;
+}
+
+.leaflet-map-pane {
+  z-index: 5 !important;
+}
