@@ -17,6 +17,12 @@
     "baseUrl": ".",
     "rootDir": "src"
   },
-  "include": ["next-env.d.ts", "twin.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "twin.d.ts",
+    "IgisMap-src.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,4 @@
 import { State } from "zustand";
-import L from "leaflet";
 
 export type GeoResult = {
   x: number; // lon,
@@ -23,19 +22,18 @@ export type GeoProps = {
   timestamp?: number;
   error?: GeolocationPositionError;
   watchId: number | null;
-  // Leaflet.Map
-  map: L.Map;
-  marker: L.Marker;
 };
 
 export interface IGeoState extends GeoProps, State {
-  getCurrentPosition: () => void;
+  getCurrentPosition: () => IGeoState;
   watchPosition: (
     enableHighAccuracy?: boolean,
     maximumAge?: number,
     timeout?: number
-  ) => void;
-  clearWatch: () => void;
-  setMarker: (latLng: L.LatLngExpression, flyToZoom?: number) => void;
-  setGeo: (key: keyof GeoProps, value: GeoProps[typeof key]) => Promise<any>;
+  ) => IGeoState;
+  clearWatch: () => IGeoState;
+  setGeo: (
+    key: keyof GeoProps,
+    value: GeoProps[typeof key]
+  ) => Promise<IGeoState>;
 }

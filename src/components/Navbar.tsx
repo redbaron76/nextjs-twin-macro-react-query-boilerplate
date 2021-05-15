@@ -7,7 +7,7 @@ import { useGeoStore } from "src/stores/geo";
 import Searchbar from "src/components/Searchbar";
 import SearchResults from "src/components/SearchResults";
 import SidebarToggler from "src/components/SidebarToggler";
-import { isBrowser } from "src/app/config";
+import { useMapStore } from "src/stores/map";
 
 interface ISearchbarWrapper {
   open: boolean;
@@ -32,7 +32,6 @@ const MenuWrapper = styled.div<ISearchbarWrapper>(({ open }) => [
     rounded-3xl
     shadow-2xl
     ml-2
-    pl-4 pr-1
     ease-in-out
     transition-height
     duration-200
@@ -44,24 +43,16 @@ const MenuWrapper = styled.div<ISearchbarWrapper>(({ open }) => [
 ]);
 
 const Navbar: React.FC = () => {
-  const [lat, lng, setMarker] = useGeoStore((store) => [
-    store.latitude,
-    store.longitude,
-    store.setMarker,
-  ]);
-  const [
-    searchText,
-    sidebarOpen,
-    navbarOpen,
-    toggleSidebar,
-    setApp,
-  ] = useAppStore((store) => [
-    store.searchText,
-    store.sidebarOpen,
-    store.navbarOpen,
-    store.toggleSidebar,
-    store.setApp,
-  ]);
+  const updateMarker = useMapStore((store) => store.updateMarker);
+  const [lat, lng] = useGeoStore((store) => [store.latitude, store.longitude]);
+  const [searchText, sidebarOpen, navbarOpen, toggleSidebar, setApp] =
+    useAppStore((store) => [
+      store.searchText,
+      store.sidebarOpen,
+      store.navbarOpen,
+      store.toggleSidebar,
+      store.setApp,
+    ]);
 
   return (
     <NavbarWrapper>
@@ -74,7 +65,7 @@ const Navbar: React.FC = () => {
             if (navbarOpen && !!searchText) {
               setApp("searchText", "");
               setApp("navbarOpen", false);
-              setMarker([lat, lng], 14);
+              updateMarker(lat, lng);
             }
 
             // re-open results

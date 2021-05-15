@@ -1,4 +1,4 @@
-import { isBrowser } from "./config";
+import { EMAP_SCRIPT_ID, EMAP_VERSION, isBrowser } from "./config";
 
 let mapProvider = null;
 

@@ -39,12 +39,12 @@ const Searchbar: React.FC<ISearchbar> = ({ open, onClick }) => {
 
   return (
     <SearchbarWrapper>
-      <div tw="flex-1">
+      <div tw="flex-1 pl-4">
         <input
           type="text"
           value={searchText}
           tw="h-10 placeholder-gray-400 font-semibold italic text-xl text-gray-500 px-1 w-full"
-          placeholder="Cosa stai cercando?"
+          placeholder="Dove vuoi andare?"
           onChange={(e: FormEvent<HTMLInputElement>) => {
             setApp("searchText", e.currentTarget.value);
           }}
@@ -53,9 +53,11 @@ const Searchbar: React.FC<ISearchbar> = ({ open, onClick }) => {
           }}
         />
       </div>
-      <Button noBorder noPadding iconOnly onClick={onClick}>
-        <FontAwesomeIcon icon={icon} tw="w-6" />
-      </Button>
+      <div tw="px-1">
+        <Button noBorder noPadding iconOnly onClick={onClick}>
+          <FontAwesomeIcon icon={icon} tw="w-6" />
+        </Button>
+      </div>
     </SearchbarWrapper>
   );
 };

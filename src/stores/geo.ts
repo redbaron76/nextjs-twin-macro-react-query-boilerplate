@@ -15,9 +15,6 @@ export const useGeoStore = create<IGeoState>(
     longitude: null,
     speed: null,
     watchId: null,
-    // Leaflet.Map
-    map: null,
-    marker: null,
     // ACTION
     getCurrentPosition: () => {
       set({ error: null });
@@ -51,6 +48,7 @@ export const useGeoStore = create<IGeoState>(
           }
         );
       }
+      return get();
     },
     watchPosition: (
       enableHighAccuracy = true,
@@ -92,6 +90,7 @@ export const useGeoStore = create<IGeoState>(
           { enableHighAccuracy, maximumAge, timeout }
         );
       }
+      return get();
     },
     clearWatch: () => {
       const watchId = get().watchId;
@@ -101,26 +100,13 @@ export const useGeoStore = create<IGeoState>(
           watchId: null,
         });
       }
-    },
-    setMarker: (latLng, flyToZoom) => {
-      const { map, marker } = get();
-      if (map) {
-        // remove prev marker
-        if (marker) map.removeLayer(marker);
-        // add marker
-        const newMarker = L.marker(latLng);
-        newMarker.addTo(map);
-        set({ marker: newMarker });
-
-        if (flyToZoom) {
-          map.flyTo(latLng, flyToZoom, { animate: true, duration: 1 });
-        }
-      }
+      return get();
     },
     setGeo: async (key, value) => {
       set({
         [key]: value,
       });
+      return get();
     },
   })
 );
