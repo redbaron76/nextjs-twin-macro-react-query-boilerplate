@@ -47,6 +47,7 @@ const Loading: React.FC<ILoading> = ({ label, inline, fixed }) => {
           <FontAwesomeIcon
             icon={faCircleNotch}
             tw="animate-spin text-green-500"
+            size="3x"
           />
         </StyledWrapperIcon>
         {label && <StyledSpan inline={inline}>{label}</StyledSpan>}
