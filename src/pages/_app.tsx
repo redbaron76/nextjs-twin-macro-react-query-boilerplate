@@ -1,10 +1,12 @@
 import { AppProps } from "next/app";
-import Header from "src/components/Header";
-import Layout from "src/components/Layout";
 import { GlobalStyles } from "twin.macro";
 import { QueryClientProvider, QueryClient } from "react-query";
 
+import Header from "components/Header";
+import Layout from "components/Layout";
+
 import "src/styles/theme.css";
+import { SITE_TITLE } from "app/config";
 
 // Create a client
 const queryClient = new QueryClient();
@@ -12,7 +14,7 @@ const queryClient = new QueryClient();
 const App = ({ Component, pageProps }: AppProps) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Header title="Eagle App - Regione Autonoma Friuli Venezia Giulia" />
+      <Header title={SITE_TITLE} />
       <GlobalStyles />
       <Layout>
         <Component {...pageProps} />

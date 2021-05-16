@@ -1,13 +1,10 @@
 import React from "react";
 import tw, { styled } from "twin.macro";
 
-import { useAppStore } from "src/stores/app";
-import { useGeoStore } from "src/stores/geo";
+import { useAppStore } from "stores/app";
 
-import Searchbar from "src/components/Searchbar";
-import SearchResults from "src/components/SearchResults";
-import SidebarToggler from "src/components/SidebarToggler";
-import { useMapStore } from "src/stores/map";
+import Searchbar from "components/Searchbar";
+import SidebarToggler from "components/SidebarToggler";
 
 interface ISearchbarWrapper {
   open: boolean;
@@ -43,8 +40,6 @@ const MenuWrapper = styled.div<ISearchbarWrapper>(({ open }) => [
 ]);
 
 const Navbar: React.FC = () => {
-  const updateMarker = useMapStore((store) => store.updateMarker);
-  const [lat, lng] = useGeoStore((store) => [store.latitude, store.longitude]);
   const [searchText, sidebarOpen, navbarOpen, toggleSidebar, setApp] =
     useAppStore((store) => [
       store.searchText,
@@ -65,7 +60,6 @@ const Navbar: React.FC = () => {
             if (navbarOpen && !!searchText) {
               setApp("searchText", "");
               setApp("navbarOpen", false);
-              updateMarker(lat, lng);
             }
 
             // re-open results
@@ -78,7 +72,6 @@ const Navbar: React.FC = () => {
             if (!searchText && navbarOpen) setApp("navbarOpen", false);
           }}
         />
-        <SearchResults />
       </MenuWrapper>
     </NavbarWrapper>
   );

@@ -4,7 +4,7 @@ import tw, { styled } from "twin.macro";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 
-import Button from "src/components/Button";
+import Button from "components/Button";
 
 interface ISidebarToggler {
   open: boolean;
@@ -18,9 +18,9 @@ const Animation = styled.div<Pick<ISidebarToggler, "open">>(({ open }) => [
 
 const SidebarToggler: React.FC<ISidebarToggler> = ({ open, onClick }) => {
   return (
-    <Button purple iconOnly withShadow noBorder onClick={onClick}>
+    <Button green iconOnly withShadow noBorder onClick={onClick}>
       <Animation open={open}>
-        <FontAwesomeIcon icon={faBars} tw="w-6" />
+        <FontAwesomeIcon icon={faBars} size="lg" />
       </Animation>
     </Button>
   );

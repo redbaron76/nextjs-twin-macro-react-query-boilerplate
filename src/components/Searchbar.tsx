@@ -1,7 +1,7 @@
 import React, { FormEvent } from "react";
 import tw, { styled } from "twin.macro";
 
-import { useAppStore } from "src/stores/app";
+import { useAppStore } from "stores/app";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLayerGroup,
@@ -9,7 +9,7 @@ import {
   faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 
-import Button from "src/components/Button";
+import Button from "components/Button";
 
 interface ISearchbar {
   open: boolean;
@@ -44,7 +44,7 @@ const Searchbar: React.FC<ISearchbar> = ({ open, onClick }) => {
           type="text"
           value={searchText}
           tw="h-10 placeholder-gray-400 font-semibold italic text-xl text-gray-500 px-1 w-full"
-          placeholder="Dove vuoi andare?"
+          placeholder="Write something here..."
           onChange={(e: FormEvent<HTMLInputElement>) => {
             setApp("searchText", e.currentTarget.value);
           }}
@@ -55,7 +55,7 @@ const Searchbar: React.FC<ISearchbar> = ({ open, onClick }) => {
       </div>
       <div tw="px-1">
         <Button noBorder noPadding iconOnly onClick={onClick}>
-          <FontAwesomeIcon icon={icon} tw="w-6" />
+          <FontAwesomeIcon icon={icon} size="lg" />
         </Button>
       </div>
     </SearchbarWrapper>

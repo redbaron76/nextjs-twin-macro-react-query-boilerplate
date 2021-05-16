@@ -27,13 +27,3 @@ aside,
 main {
   -webkit-overflow-scrolling: touch;
 }
-
-.leaflet-map-pane {
-  z-index: 5 !important;
-}
-
-.leaflet-top.leaflet-left,
-.leaflet-top.leaflet-right {
-  top: 4.5rem;
-  z-index: 19;
-}

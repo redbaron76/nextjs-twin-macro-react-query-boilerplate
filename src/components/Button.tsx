@@ -41,11 +41,7 @@ interface IButton extends IStyle {
 }
 
 const Button: React.FC<IButton> = (props) => {
-  return (
-    <StyledButton onClick={props.onClick} {...props}>
-      {props.children}
-    </StyledButton>
-  );
+  return <StyledButton {...props}>{props.children}</StyledButton>;
 };
 
 export default Button;

@@ -4,7 +4,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -15,14 +15,11 @@
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
-    "rootDir": "src"
+    "rootDir": ".",
+    "paths": {
+      "*": ["src/*"]
+    }
   },
-  "include": [
-    "next-env.d.ts",
-    "twin.d.ts",
-    "IgisMap-src.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ],
+  "include": ["next-env.d.ts", "twin.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }

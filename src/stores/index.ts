@@ -1,7 +1,8 @@
-import { isBrowser } from "src/app/config";
+import { isBrowser } from "app/config";
 import { configurePersist } from "zustand-persist";
 import { State, SetState, StateCreator } from "zustand";
 import { NonFunctionPropertyNames } from "zustand-persist/lib/reconcile";
+import { KeeperOption } from "zustand-persist/lib/keeper";
 
 interface PersistOption<S extends State> {
   key: string;
@@ -9,10 +10,12 @@ interface PersistOption<S extends State> {
   allowlist?: NonFunctionPropertyNames<S>[];
 }
 
-export const { persist, purge } = configurePersist({
+const configureOption = {
   storage: isBrowser ? localStorage : null,
-  rootKey: "eagleapp",
-});
+  rootKey: "prenotazione",
+} as KeeperOption;
+
+export const { persist, purge } = configurePersist(configureOption);
 
 export const browserPersist = <S extends State>(
   option: PersistOption<S>,

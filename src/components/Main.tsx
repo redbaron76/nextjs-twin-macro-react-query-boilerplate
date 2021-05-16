@@ -1,8 +1,7 @@
-import React, { /* useRef, useState, */ useEffect } from "react";
+import React from "react";
 import tw, { styled } from "twin.macro";
-// import { useSwipe } from "use-swipe-hook";
 
-import { useAppStore } from "src/stores/app";
+import { useAppStore } from "stores/app";
 
 import Overlay from "./Overlay";
 
@@ -31,33 +30,10 @@ const StyledMain = styled.main<IMain>((props) => [
 ]);
 
 const Main: React.FC<IMain> = ({ children }) => {
-  // const swipeRef = useRef<HTMLDivElement>(null);
-  // const [open, setOpen] = useState<boolean>(false);
   const [sidebarOpen, toggleSidebar] = useAppStore((store) => [
     store.sidebarOpen,
     store.toggleSidebar,
   ]);
-
-  // const direction = useSwipe({ ref: swipeRef, thresholdPX: 20 });
-
-  /* useEffect(() => {
-    if (!open && direction === "right") {
-      document && document.body.classList.add("menu-is-open");
-      setOpen(true);
-    }
-    if (open && direction === "left") {
-      document && document.body.classList.remove("menu-is-open");
-      setOpen(false);
-    }
-  }, [direction]); */
-
-  /* useEffect(() => {
-    if (sidebarOpen) {
-      document && document.body.classList.add("menu-is-open");
-    } else {
-      document && document.body.classList.remove("menu-is-open");
-    }
-  }, [sidebarOpen]); */
 
   return (
     <StyledMain isOpen={sidebarOpen}>

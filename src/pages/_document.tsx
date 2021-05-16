@@ -1,3 +1,4 @@
+import { SITE_LANG } from "app/config";
 import Document, {
   Html,
   Head,
@@ -16,7 +17,7 @@ class AppDocument extends Document {
 
   render() {
     return (
-      <Html lang="it">
+      <Html lang={SITE_LANG}>
         <Head />
         <body>
           <Main />

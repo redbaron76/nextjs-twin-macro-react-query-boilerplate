@@ -1,6 +1,6 @@
 import create, { SetState, GetState } from "zustand";
 import { browserPersist } from ".";
-import { IAppState } from "src/types/app";
+import { IAppState } from "types/app";
 
 export const useAppStore = create<IAppState>(
   browserPersist(
