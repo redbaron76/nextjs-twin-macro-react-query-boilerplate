@@ -1,12 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Clone and Go!
 
-## Getting Started
+This repo is my personal `dev stack` which puts together all the tools I usually love to work with.
 
-First, run the development server:
+Feel free to `clone` it and `try` how it works:
 
 ```bash
-npm run dev
-# or
+# clone the repo:
+git clone https://github.com/redbaron76/nextjs-twin-macro-react-query-boilerplate <your-app-name>
+
+# install dependencies
+cd <your-app-name> && yarn install
+
+# run dev server
 yarn dev
 ```
 
@@ -14,7 +19,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/version](http://localhost:3000/api/version). This endpoint can be edited in `pages/api/version.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
